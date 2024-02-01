@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TodoService } from './services/todo.service';
 import { User } from './models/user';
 
@@ -7,9 +7,9 @@ import { User } from './models/user';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
-  title = 'todo';
+  title = 'Angular 16 HTTP Client Example';
 
   listUsers: User[] = [];
 
@@ -24,9 +24,6 @@ export class AppComponent {
     .subscribe({
       next: (users : User[]) => {
         this.listUsers = users;
-      },
-      error: (err : Error) => {
-        console.log(err);
       }
     });
   }
@@ -37,14 +34,11 @@ export class AppComponent {
     .subscribe({
       next: () => {
           this.listUsers = this.listUsers.filter(u => u.id !== user.id);
-      },
-      error: (err : Error) => {
-        console.log(err);
       }
     });
   }
 
-  genertateAvatar(user: User) {
+  generateAvatar(user: User) {
     return `https://api.dicebear.com/7.x/pixel-art/svg?seed={${user.name}`;
    }
 
