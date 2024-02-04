@@ -1,129 +1,30 @@
- ### Install Angular ESLint
-`ng add @angular-eslint/schematics`
+# Angular 16 HTTP Client Example
+
+This project was generated with [Angular CLI]("http.//angular.io") version 16.0.0.
+
+This project is a small example of using the HttpClient library in Angular 16.0.0. The project connects to a test API and displays the data in a table.
+
+In this project, Prettier and ESLint are also used, along with the utilization of the API https://www.dicebear.com/.
+
+## Installation
+clone the repository and run `npm install` to install the dependencies.
+
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma]("https://karma-runner.github.io").
 
 
-### Install Prettier and Prettier-ESLint dependencies
-`npm i prettier prettier-eslint eslint-config-prettier eslint-plugin-prettier -D`
 
 
-### ESLint configuration
-Filename: `.eslintrc.json`
-```json
-// https://github.com/angular-eslint/angular-eslint#notes-for-eslint-plugin-prettier-users
-{
-  "root": true,
-  "ignorePatterns": ["projects/**/*"],
-  "overrides": [
-    {
-      "files": ["*.ts"],
-      "parserOptions": {
-        "project": ["tsconfig.json"],
-        "createDefaultProgram": true
-      },
-      "extends": [
-        "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates",
-        "plugin:prettier/recommended"
-      ],
-      "rules": {
-        "@angular-eslint/component-class-suffix": [
-          "error",
-          {
-            "suffixes": ["Page", "Component"]
-          }
-        ],
-        "@angular-eslint/component-selector": [
-          "error",
-          {
-            "type": "element",
-            "prefix": "app",
-            "style": "kebab-case"
-          }
-        ],
-        "@angular-eslint/directive-selector": [
-          "error",
-          {
-            "type": "attribute",
-            "prefix": "app",
-            "style": "camelCase"
-          }
-        ],
-        "@angular-eslint/use-lifecycle-interface": [
-          "error"
-        ],
-        "@typescript-eslint/member-ordering": 0,
-        "@typescript-eslint/naming-convention": 0
-      }
-    },
-    {
-      "files": ["*.html"],
-      "extends": ["plugin:@angular-eslint/template/recommended"],
-      "rules": {}
-    },
-    {
-      "files": ["*.html"],
-      "excludedFiles": ["*inline-template-*.component.html"],
-      "extends": ["plugin:prettier/recommended"],
-      "rules": {
-        "prettier/prettier": ["error", { "parser": "angular" }]
-      }
-    }
-  ]
-}
-
-```
-
-
-### Prettier Configuration
-Filename: `.prettierrc`
-```json
-{
-  "tabWidth": 2,
-  "useTabs": false,
-  "singleQuote": true,
-  "semi": true,
-  "bracketSpacing": true,
-  "arrowParens": "avoid",
-  "trailingComma": "es5",
-  "bracketSameLine": true,
-  "printWidth": 80
-}
-```
-
-Filename: `.prettierignore`
-```
-dist
-node_modules
-```
-
-
-### VSCode extensions:
-```
-dbaeumer.vscode-eslint
-esbenp.prettier-vscode
-```
-
-### Add the following to your .vscode/settings.json file:
-```
-{
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    },
-    "editor.formatOnSave": false
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    },
-    "editor.formatOnSave": false
-  },
-},
-"editor.suggest.snippetsPreventQuickSuggestions": false,
-"editor.inlineSuggest.enabled": true
-```
-
-### Add Fix Lint and Prettier errors command in package.json
-`"lint:fix": "ng lint --fix"`
